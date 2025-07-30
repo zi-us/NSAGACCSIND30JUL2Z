@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investors & Media | Borel Sigma Inc - Growth, Governance, and Grants</title>
+    <meta name="description" content="Access financial reports, press releases, corporate governance information, and grant opportunities. The central hub for investors, media, and research partners.">
+    <meta name="keywords" content="investor relations, media communications, financial reporting, corporate governance, research grants, funding rounds, SEC filings, press kit, Holdings, Offices">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap');
+        
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #0066ff;
+            --danger: #ff3366;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: 'Calibri Light', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--primary);
+            background: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            padding: 1.2rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .brand-name {
+            text-decoration: none;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 22px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-menu a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            transition: opacity 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        /* Dropdown Menu Styles */
+        .nav-menu .dropdown, .nav-menu .submenu-trigger {
+            position: relative;
+        }
+
+        .nav-menu .arrow {
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-left: 5px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .dropdown-menu, .submenu-content {
+            visibility: hidden;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            list-style: none;
+            padding: 1rem 0;
+            margin: 0;
+            border: 1px solid var(--gray-200);
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            min-width: 200px;
+            z-index: 1001;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+        }
+        
+        .dropdown > .dropdown-menu {
+            padding-top: 1.8rem;
+        }
+
+        .submenu-content {
+            top: 0;
+            left: 100%;
+            margin-left: 1px;
+            padding-top: 1rem;
+        }
+
+        .dropdown:hover > .dropdown-menu,
+        .submenu-trigger:hover > .submenu-content,
+        .dropdown-menu.show, 
+        .submenu-content.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .dropdown-menu li a {
+            padding: 0.8rem 1.5rem;
+            white-space: nowrap;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--gray-100);
+            opacity: 1;
+        }
+
+        /* Mobile Menu Button ("Burger") */
+        .mobile-menu-button {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1010;
+        }
+        .mobile-menu-button svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 5rem;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--gray-100) 0%, white 100%);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .page-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.6rem;
+            font-weight: 200;
+            line-height: 1.2;
+            margin-bottom: 1.6rem;
+            letter-spacing: -0.02em;
+        }
+
+        .page-header p {
+            font-size: 1.4rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 6rem 0;
+        }
+        
+        .content-section.bg-light {
+            background: var(--gray-100);
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        /* ... (Other content styles remain the same) ... */
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 3.2rem; font-weight: 200; margin-bottom: 1rem; }
+        .section-header p { font-size: 1.3rem; color: var(--gray-600); max-width: 700px; margin: 0 auto; }
+        .financial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: center; }
+        .financial-stat .stat-value { font-size: 3.6rem; font-weight: 300; color: var(--accent); line-height: 1; }
+        .financial-stat .stat-value sub { font-size: 1.6rem; font-weight: 400; color: var(--success); margin-left: 0.5rem; }
+        .financial-stat .stat-label { font-size: 1.2rem; color: var(--gray-700); margin-top: 0.8rem; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2.5rem; }
+        .resource-card { border: 1px solid var(--gray-200); border-radius: 0.4rem; padding: 2.5rem; background: white; transition: all 0.3s ease; }
+        .resource-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); border-color: var(--accent); }
+        .resource-card .icon { color: var(--accent); margin-bottom: 1.5rem; }
+        .resource-card h3 { font-size: 1.6rem; font-weight: 400; margin-bottom: 0.8rem; }
+        .resource-card p { font-size: 1.1rem; color: var(--gray-600); margin-bottom: 2rem; }
+        .tab-container { display: flex; gap: 1rem; border-bottom: 1px solid var(--gray-300); margin-bottom: 3rem; }
+        .tab-btn { padding: 1rem 2rem; cursor: pointer; border: none; background: none; font-size: 1.2rem; color: var(--gray-600); border-bottom: 2px solid transparent; transition: all 0.2s ease; }
+        .tab-btn.active { color: var(--primary); border-bottom-color: var(--accent); font-weight: 500; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .press-release-list li { padding: 1.5rem 0; border-bottom: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center; }
+        .press-release-list .date { color: var(--gray-600); font-size: 1.1rem; margin-right: 2rem; }
+        .press-release-list a { color: var(--primary); text-decoration: none; }
+        .press-release-list a:hover { color: var(--accent); }
+        .governance-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 3rem; }
+        .profile-card { text-align: center; }
+        .profile-card .avatar { width: 120px; height: 120px; border-radius: 50%; background: var(--gray-200); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--gray-500); }
+        .profile-card h4 { font-size: 1.4rem; font-weight: 500; }
+        .profile-card p { font-size: 1.1rem; color: var(--gray-600); }
+        .portal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+        .portal-card { border: 1px solid var(--gray-200); background: linear-gradient(135deg, white, var(--gray-100)); padding: 4rem; text-align: center; border-radius: 0.8rem; transition: all 0.3s ease; }
+        .portal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.07); }
+        .portal-card h3 { font-size: 2.4rem; font-weight: 200; margin-bottom: 1rem; }
+        .portal-card p { font-size: 1.2rem; color: var(--gray-600); margin-bottom: 2.5rem; }
+        .faq-item { border-bottom: 1px solid var(--gray-200); }
+        .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 2rem 0; font-size: 1.6rem; font-weight: 400; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question .toggle-icon { transition: transform 0.3s ease; font-size: 2rem; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; color: var(--gray-700); font-size: 1.2rem; line-height: 1.8; }
+        .faq-answer p { padding-bottom: 2rem; }
+        .faq-item.active .faq-question .toggle-icon { transform: rotate(45deg); }
+        .cta-section { background: var(--primary); color: white; padding: 6rem 0; text-align: center; }
+        .cta-content h2 { font-size: 3rem; font-weight: 200; margin-bottom: 1.6rem; }
+        .cta-content p { font-size: 1.4rem; opacity: 0.8; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 1.6rem; justify-content: center; }
+        .btn { padding: 0.8rem 2rem; font-size: 1.1rem; font-weight: 400; border: 1px solid var(--primary); background: transparent; color: var(--primary); cursor: pointer; transition: all 0.2s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.8rem; letter-spacing: 0.02em; border-radius: 0.2rem; }
+        .btn:hover { background: var(--primary); color: white; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--secondary); border-color: var(--secondary); }
+        .btn-accent { background: var(--accent); color: white; border-color: var(--accent); }
+        .btn-accent:hover { background: #0052cc; border-color: #0052cc; }
+        .btn-white { background: white; color: var(--primary); border-color: white; }
+        .btn-white:hover { background: transparent; color: white; border-color: white; }
+        .btn-lg { padding: 1.2rem 3rem; font-size: 1.3rem; }
+        footer { padding: 4rem 0 2rem; border-top: 1px solid var(--gray-200); }
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center; }
+        .footer-text { font-size: 1.1rem; color: var(--gray-600); }
+        .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(33, 37, 41, 0.95); backdrop-filter: blur(5px); color: var(--gray-200); padding: 2rem; z-index: 2000; transform: translateY(100%); transition: transform 0.5s ease-in-out; visibility: hidden; }
+        .cookie-banner.show { transform: translateY(0); visibility: visible; }
+        .cookie-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+        .cookie-text { font-size: 1.2rem; line-height: 1.5; }
+        .cookie-text a { color: white; text-decoration: underline; font-weight: 400; }
+        .cookie-banner .btn { flex-shrink: 0; background: var(--accent); border-color: var(--accent); color: white; }
+        .cookie-banner .btn:hover { opacity: 0.8; }
+        .chat-button { position: fixed; bottom: 3rem; right: 3rem; z-index: 1050; background-color: var(--primary); color: white; padding: 1rem 1.8rem; border-radius: 50px; display: flex; align-items: center; gap: 1rem; text-decoration: none; font-size: 1.3rem; font-weight: 400; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.3s ease; transform: scale(0); animation: pop-in 0.5s 1s ease-out forwards; }
+        @keyframes pop-in { to { transform: scale(1); } }
+        .chat-button:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        .chat-icon svg { width: 20px; height: 20px; display: block; }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+           .portal-grid {
+               grid-template-columns: 1fr;
+           }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+
+            /* --- Mobile Navigation Styles --- */
+            .nav-actions {
+                display: none; /* Hide desktop buttons */
+            }
+            .mobile-menu-button {
+                display: block; /* Show burger button */
+            }
+            .nav-left {
+                flex-grow: 1; /* Allow brand to take space */
+            }
+            .nav-menu {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Position below the nav bar */
+                left: 0;
+                width: 100%;
+                background: white;
+                border-top: 1px solid var(--gray-200);
+                
+                max-height: 0; /* Hide by default */
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+            }
+            .nav-menu.active {
+                max-height: 50vh; /* Animate to this height */
+                overflow-y: auto; /* Allow scrolling if needed */
+            }
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid var(--gray-100);
+            }
+            .nav-menu a {
+                padding: 1.5rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .dropdown-menu, .submenu-content {
+                position: static;
+                visibility: visible;
+                opacity: 1;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                background-color: var(--gray-100);
+                min-width: 100%;
+                padding: 0;
+                display: none; /* Hide sub-menus by default */
+            }
+             .dropdown-menu.show, .submenu-content.show {
+                display: block; /* JS will toggle this class on tap */
+            }
+            .dropdown > .dropdown-menu {
+                padding-top: 0;
+            }
+            /* --- End Mobile Navigation Styles --- */
+            
+            .financial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portal-card {
+                padding: 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .chat-button {
+                padding: 1.2rem;
+                bottom: 2rem;
+                right: 2rem;
+            }
+            .chat-button span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="brand-name">
+                    <img src="BorelLogo.jpg" alt="Borel Sigma Inc Logo" class="logo">
+                </a>
+                <ul class="nav-menu" id="main-nav-menu">
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Methodology</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#">Holdings <span class="arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="submenu-trigger">
+                                <a href="#">Asia <span class="arrow">►</span></a>
+                                <ul class="submenu-content">
+                                    <li class="submenu-trigger">
+                                        <a href="#">Southeast Asia <span class="arrow">►</span></a>
+                                        <ul class="submenu-content">
+                                            <li><a href="https://www.borelsigma.in/" target="_blank">India</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#">North America</a></li>
+                            <li><a href="#">Europe</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#">Offices <span class="arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                             <li class="submenu-trigger">
+                                <a href="#">Asia <span class="arrow">►</span></a>
+                                <ul class="submenu-content">
+                                    <li><a href="https://www.borelsigma.in/" target="_blank">India</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">North America</a></li>
+                            <li><a href="#">South America</a></li>
+                            <li><a href="#">Europe</a></li>
+                            <li><a href="#">Africa</a></li>
+                            <li><a href="#">Australia</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="team-login.html">Team Portal</a></li>
+                    <li><a href="#" class="active">Investors & Media</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <a href="contact-investors.html" class="btn">Contact IR</a> 
+                <a href="#portals" class="btn btn-primary">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                    Secure Login
+                </a>
+            </div>
+            <button id="mobile-menu-toggle" class="mobile-menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Investor & Media Hub</h1>
+            <p>Fostering growth and transparency through clear communication. Access financial data, corporate announcements, research partnerships, and media resources.</p>
+        </div>
+    </section>
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header"><h2>Q2 2025 Financial Highlights</h2><p>Demonstrating sustained growth and robust operational performance. All figures are non-GAAP.</p></div>
+            <div class="financial-grid"><div class="financial-stat"><span class="stat-value">$128.4M</span><p class="stat-label">Quarterly Revenue</p></div><div class="financial-stat"><span class="stat-value">34.2%</span><p class="stat-label">EBITDA Margin</p></div><div class="financial-stat"><span class="stat-value">$4.2B</span><p class="stat-label">Total Contract Value (TCV)</p></div><div class="financial-stat"><span class="stat-value">$850M</span><p class="stat-label">Series C Funding (Closed)</p></div></div>
+        </div>
+    </section>
+    <section class="content-section bg-light">
+        <div class="container">
+            <div class="section-header"><h2>Investor Toolkit</h2><p>Your source for essential financial documents and corporate disclosures.</p></div>
+            <div class="resource-grid"><div class="resource-card"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div><h3>Quarterly Reports</h3><p>Detailed analysis of our financial performance and operational metrics for the latest quarter.</p><a href="#" class="btn">View Reports →</a></div><div class="resource-card"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline><path d="M2.5 10.5c3.5-1 3.5 1 7 0"></path><path d="M2.5 14.5c3.5-1 3.5 1 7 0"></path></svg></div><h3>SEC Filings</h3><p>Access our 10-K, 10-Q, and other filings with the U.S. Securities and Exchange Commission.</p><a href="#" class="btn">Access Filings →</a></div><div class="resource-card"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m7 2 10 5 -10 5-10-5 10-5Z"></path><path d="m7 12 10 5-10 5-10-5 10-5Z"></path></svg></div><h3>Presentations</h3><p>Download presentations from recent investor conferences, earnings calls, and webcasts.</p><a href="#" class="btn">View Slides →</a></div><div class="resource-card"><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><h3>ESG Report</h3><p>Our commitment to Environmental, Social, and Governance principles and initiatives.</p><a href="#" class="btn">Read Report →</a></div></div>
+        </div>
+    </section>
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header"><h2>Media & Press Center</h2><p>Stay informed with the latest news, announcements, and media assets from Borel Sigma Inc.</p></div>
+            <div class="tab-container" id="pressTabs"><button class="tab-btn active" data-tab="press-releases">Press Releases</button><button class="tab-btn" data-tab="in-the-news">In the News</button><button class="tab-btn" data-tab="media-kit">Media Kit</button></div>
+            <div id="press-releases" class="tab-content active"><ul class="press-release-list"><li><div><span class="date">JUL 28, 2025</span><a href="#">Borel Sigma Inc. Announces Strategic Partnership with Aethelred Dynamics to Accelerate AI in Defense Systems</a></div><a href="#" class="btn">Read →</a></li><li><div><span class="date">JUN 28, 2025</span><a href="#">Borel Sigma Inc. Closes $850 Million Series C Funding Round Led by Quantum Growth Partners</a></div><a href="#" class="btn">Read →</a></li><li><div><span class="date">MAY 10, 2025</span><a href="#">Borel Sigma Inc. Launches Quantum Organizational Design Framework for Enterprise Transformation</a></div><a href="#" class="btn">Read →</a></li></ul></div>
+            <div id="in-the-news" class="tab-content"><ul class="press-release-list"><li><div><span class="date">FORBES | JUL 20, 2025</span><a href="#">How Borel Sigma is Redefining Change Management with Math</a></div><a href="#" target="_blank" class="btn">View Article →</a></li><li><div><span class="date">TECHCRUNCH | JUN 29, 2025</span><a href="#">Consulting Giant Borel Sigma Raises Massive Series C to Bring its 'Transformation Engine' to the Masses</a></div><a href="#" target="_blank" class="btn">View Article →</a></li></ul></div>
+            <div id="media-kit" class="tab-content"><p style="text-align: center; margin-bottom: 2rem; color: var(--gray-700);">Download our official media kit, which includes logos, executive bios, and company background information.</p><div style="text-align: center;"><a href="#" class="btn btn-primary btn-lg">Download Media Kit (.zip)</a></div></div>
+        </div>
+    </section>
+    <section class="featured-case-study" style="margin: 0; padding: 6rem 0; background: var(--secondary);"><div class="container cta-content"><div class="section-header"><h2 style="color: white;">Research & Grants Portal</h2><p style="opacity: 0.9;">We are committed to advancing foundational research in organizational science and complex systems. We offer non-dilutive funding and collaboration opportunities to academic institutions and independent researchers.</p></div><div style="text-align: center; color: white;"><p style="margin-bottom: 2rem; opacity: 0.8;">Current areas of interest include applications of category theory in corporate strategy, game theory in multi-stakeholder ecosystems, and neuro-linguistic programming for change communication.</p><a href="contact-investors.html" class="btn btn-white btn-lg">Apply for a Grant</a></div></div></section>
+    <section class="content-section"><div class="container"><div class="section-header"><h2>Corporate Governance</h2><p>Leadership committed to integrity, accountability, and long-term value creation.</p></div><div class="governance-grid"><div class="profile-card"><div class="avatar"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><h4>Er. R Roy</h4><p>Chairman & CEO</p></div><div class="profile-card"><div class="avatar"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><h4>Kenji Tanaka</h4><p>Lead Independent Director</p></div><div class="profile-card"><div class="avatar"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><h4>Dr. Marcus Thorne</h4><p>Director, Quantum Growth</p></div><div class="profile-card"><div class="avatar"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><h4>Isabelle Rossi</h4><p>Director, Audit Chair</p></div></div></div></section>
+    <section class="content-section bg-light" id="portals"><div class="container"><div class="section-header"><h2>Secure Portals</h2><p>Access dedicated resources and manage your relationship with Borel Sigma Inc.</p></div><div class="portal-grid"><div class="portal-card"><h3>Investor Portal</h3><p>For accredited investors and shareholders. Access proprietary reports, manage holdings, and view confidential materials.</p><a href="#" class="btn btn-accent btn-lg">Login to Investor Portal</a></div><div class="portal-card"><h3>Grant Applicant Portal</h3><p>For research partners. Submit and manage grant applications, track progress, and access collaboration tools.</p><a href="#" class="btn btn-accent btn-lg">Login to Grants Portal</a></div></div></div></section>
+    <section class="content-section"><div class="container"><div class="section-header"><h2>Frequently Asked Questions</h2></div><div class="faq-container"><div class="faq-item"><button class="faq-question"><span>When is the next earnings release?</span><span class="toggle-icon">+</span></button><div class="faq-answer"><p>Borel Sigma Inc. is expected to announce its third quarter 2025 financial results in late October 2025. The exact date and webcast details will be announced approximately two weeks prior. Please subscribe to our alerts to be notified.</p></div></div><div class="faq-item"><button class="faq-question"><span>How can I get a copy of the Annual Report?</span><span class="toggle-icon">+</span></button><div class="faq-answer"><p>Our latest Annual Report and all quarterly reports are available for download in the <a href="#">Investor Toolkit</a> section of this website. You can also find them in our SEC filings.</p></div></div><div class="faq-item"><button class="faq-question"><span>Who is your transfer agent?</span><span class="toggle-icon">+</span></button><div class="faq-answer"><p>Our transfer agent is Equity Services, Inc. They can be contacted for questions regarding stock certificates, account status, and address changes. All registered shareholders will need to contact them directly for such inquiries.</p></div></div><div class="faq-item"><button class="faq-question"><span>How do I contact Investor Relations?</span><span class="toggle-icon">+</span></button><div class="faq-answer"><p>You can contact our Investor Relations department via the form linked below. We aim to respond to all inquiries within two business days.</p></div></div></div></div></section>
+    <section class="cta-section" id="contact"><div class="cta-content"><h2>Connect With Us</h2><p>For investor inquiries or media requests, please reach out to the appropriate team.</p><div class="cta-buttons"><a href="contact-investors.html" class="btn btn-white btn-lg">Contact Investor Relations</a><a href="mailto:media@borelsigma.inc" class="btn btn-lg" style="background: transparent; color: white; border-color: white;">Contact Media Team</a></div></div></section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2025 Borel Sigma Inc. All rights reserved. | Strategic Change Management Consultancy</p>
+        </div>
+    </footer>
+    
+    <div id="cookie-consent-banner" class="cookie-banner"><div class="cookie-content"><p class="cookie-text">We use cookies to enhance your Browse experience and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. <a href="#">Learn More</a>.</p><button id="accept-cookies" class="btn">Accept All</button></div></div>
+    <a href="#" id="live-chat-button" class="chat-button"><div class="chat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><span>Live Chat</span></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // === Mobile Menu Logic ===
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mainNavMenu = document.getElementById('main-nav-menu');
+            if (mobileMenuToggle && mainNavMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mainNavMenu.classList.toggle('active');
+                });
+            }
+
+            // === Cookie Consent Logic ===
+            const cookieBanner = document.getElementById('cookie-consent-banner');
+            const acceptCookiesBtn = document.getElementById('accept-cookies');
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => cookieBanner.classList.add('show'), 500);
+            }
+            acceptCookiesBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'true');
+                cookieBanner.classList.remove('show');
+            });
+
+            // === Live Chat Button Logic ===
+            const chatButton = document.getElementById('live-chat-button');
+            if (chatButton) {
+                chatButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Live Chat is currently unavailable. Please use the contact form.');
+                });
+            }
+
+            // === Dropdown Menu Script ===
+            const dropdownToggles = document.querySelectorAll('.nav-menu .dropdown > a, .nav-menu .submenu-trigger > a');
+            dropdownToggles.forEach(toggle => {
+                 toggle.addEventListener('click', function(e) {
+                    // Only prevent default on mobile/touch where it's a tap
+                    if (window.innerWidth <= 768) {
+                        const submenu = this.nextElementSibling;
+                        if (submenu) {
+                            e.preventDefault();
+                            submenu.classList.toggle('show');
+                        }
+                    }
+                });
+            });
+            
+            // Close dropdowns when clicking outside on mobile
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-menu')) {
+                    document.querySelectorAll('.dropdown-menu.show, .submenu-content.show').forEach(menu => {
+                        menu.classList.remove('show');
+                    });
+                }
+            });
+
+            // === Press Center Tabs Functionality ===
+            const tabContainer = document.getElementById('pressTabs');
+            if (tabContainer) {
+                const tabBtns = tabContainer.querySelectorAll('.tab-btn');
+                const tabContents = tabContainer.nextElementSibling.parentElement.querySelectorAll('.tab-content');
+                tabBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        tabBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const tabId = btn.getAttribute('data-tab');
+                        tabContents.forEach(content => {
+                            content.classList.toggle('active', content.id === tabId);
+                        });
+                    });
+                });
+            }
+            
+            // === FAQ Accordion Functionality ===
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    item.classList.toggle('active');
+                    answer.style.maxHeight = isActive ? null : answer.scrollHeight + 'px';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
