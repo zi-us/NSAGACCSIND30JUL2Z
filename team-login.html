@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Portal & Careers | Borel Sigma Inc.</title>
+    <meta name="description" content="Secure login for Borel Sigma Inc. team members and career invitations.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap');
+        
+        :root {
+            --primary: #000000;
+            --secondary: #1a1a1a;
+            --accent: #0066ff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-600: #6c757d;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 62.5%; }
+        body {
+            font-family: 'Calibri Light', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: var(--primary);
+            background-color: var(--gray-100);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .split-container {
+            display: flex;
+            width: 100%;
+            max-width: 960px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .login-pane, .career-pane {
+            width: 50%;
+            padding: 5rem;
+        }
+
+        .login-pane {
+            border-right: 1px solid var(--gray-200);
+        }
+        
+        .pane-header { text-align: center; margin-bottom: 3rem; }
+        .pane-header .logo { height: 30px; margin-bottom: 1.5rem; }
+        .pane-header h1 { font-size: 2.2rem; font-weight: 400; margin-bottom: 0.5rem; }
+        .pane-header p { color: var(--gray-600); font-size: 1.3rem; }
+
+        .form-group { margin-bottom: 2rem; text-align: left; }
+        .form-label { display: block; font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 400; }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 1.2rem 1.6rem;
+            font-size: 1.2rem;
+            font-family: inherit;
+            border: 1px solid var(--gray-300);
+            background: white;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .form-input:focus, .form-select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1); }
+
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        .form-footer a { color: var(--accent); text-decoration: none; }
+        
+        .btn {
+            display: flex; align-items: center; justify-content: center; width: 100%; padding: 1.2rem;
+            font-size: 1.3rem; font-weight: 500; text-decoration: none; border-radius: 4px;
+            border: 1px solid var(--gray-300); background-color: white; color: var(--primary);
+            cursor: pointer; transition: all 0.2s ease; gap: 1rem;
+        }
+        .btn:hover { border-color: var(--primary); background-color: var(--gray-100); }
+        .btn-primary { background-color: var(--primary); border-color: var(--primary); color: white; margin-top: 1rem; }
+        .btn-primary:hover { background-color: var(--secondary); border-color: var(--secondary); }
+        .btn svg { width: 18px; height: 18px; }
+
+        .career-pane {
+            background-color: var(--gray-100);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .career-pane .btn { margin-bottom: 1.5rem; }
+        .enthusiast-type {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            text-align: center;
+            margin-top: -1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .split-container { flex-direction: column; max-width: 480px; }
+            .login-pane, .career-pane { width: 100%; }
+            .login-pane { border-right: none; border-bottom: 1px solid var(--gray-200); }
+        }
+    </style>
+</head>
+<body>
+    <div class="split-container">
+        <div class="login-pane">
+            <div class="pane-header">
+                <a href="index.html"><img src="BorelLogo.jpg" alt="Borel Sigma Inc Logo" class="logo"></a>
+                <h1>Team Portal</h1>
+                <p>Please log in to your dashboard.</p>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-input" required>
+                </div>
+                 <div class="form-group">
+                    <label for="domain" class="form-label">Select Your Domain</label>
+                    <select id="domain" class="form-select" required>
+                        <option value="" disabled selected>Choose a domain...</option>
+                        <option value="Homo">Homo (frameworks)</option>
+                        <option value="AEq">AEq (Haas and Cloud)</option>
+                        <option value="Zi-US">Zi-US (SaaS and Tech)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Log In</button>
+                <div class="form-footer">
+                    <a href="#" onclick="alert('Password recovery not implemented.');">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="career-pane">
+             <div class="pane-header">
+                <h1>Career Invitation</h1>
+                <p>Connect with us to explore opportunities.</p>
+            </div>
+            
+            <button type="button" class="btn" onclick="alert('LinkedIn login not implemented.');">
+                <svg viewBox="0 0 24 24" fill="#0077B5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <span>Continue with LinkedIn</span>
+            </button>
+            <p class="enthusiast-type">For Non-Tech Enthusiasts</p>
+
+            <button type="button" class="btn" onclick="alert('GitHub login not implemented.');">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <span>Continue with GitHub</span>
+            </button>
+            <p class="enthusiast-type">For Tech Enthusiasts</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const domain = document.getElementById('domain').value;
+
+            // --- Hardcoded Login Check ---
+            if (email.toLowerCase() !== 'rajaram@borelsigma.com' || password !== 'rajaram') {
+                alert('Invalid email or password. Please try again.');
+                return;
+            }
+
+            if (!domain) {
+                alert('Please select a domain.');
+                return;
+            }
+
+            const params = new URLSearchParams();
+            params.append('email', email);
+            params.append('domain', domain);
+            params.append('loginTime', new Date().toLocaleString());
+
+            window.location.href = `team-dashboard.html?${params.toString()}`;
+        });
+    </script>
+</body>
+</html>
